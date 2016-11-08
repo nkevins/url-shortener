@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+google:
+  shortened: b38d64
+  original: http://www.google.com
+  hit: 0
+
+yahoo:
+  shortened: 23bc15
+  original: www.yahoo.com
+  hit: 0

@@ -1,0 +1,19 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Shortened URL</th>
+            <th>Original URL</th>
+            <th>No of Hits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @links.each do |link| %>
+            <tr>
+                <td><a href="<%= resolve_url(link.shortened) %>" target="_blank"><%= resolve_url(link.shortened) %></a></td>
+                <td><a href="<%= link.original %>" target="_blank"><%= link.original %></a></td>
+                <td><%= link.hit %></td>
+            </tr>
+        <%end %>
+    </tbody>
+</table>
+  
