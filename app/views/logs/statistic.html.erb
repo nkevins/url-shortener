@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-8">
+        <h1>URL Statistic for <%= @link.original %></h1>
+        
+        <h3>Total Hits: <%= @link.logs.count %></h3>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Access Time</th>
+              <th>Browser</th>
+              <th>Platform</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @link.logs.order(:access_time).each do |log| %>
+              <tr>
+                <td><%= log.access_time %></td>
+                <td><%= log.browser %></td>
+                <td><%= log.platform %></td>
+              </tr>
+            <%end %>
+          </tbody>
+        </table>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 require "securerandom"
 
 class Link < ApplicationRecord
+    has_many :logs
     
     validates :shortened, presence: true, uniqueness: true
     validates :original, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108040843) do
+ActiveRecord::Schema.define(version: 20161201035404) do
 
   create_table "links", force: :cascade do |t|
     t.string   "shortened"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20161108040843) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["shortened"], name: "index_links_on_shortened", unique: true
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.integer  "link_id"
+    t.string   "browser"
+    t.string   "platform"
+    t.datetime "access_time"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["link_id"], name: "index_logs_on_link_id"
   end
 
 end

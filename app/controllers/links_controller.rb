@@ -1,3 +1,5 @@
+require "browser"
+
 class LinksController < ApplicationController
     
     def new
@@ -19,6 +21,15 @@ class LinksController < ApplicationController
         redirect_to url
         link.hit += 1
         link.save
+        
+        user_agent_raw = request.headers["User-Agent"]
+        browser = Browser.new(user_agent_raw, accept_language: "en-us")
+        log = Log.new
+        log.browser = browser.name
+        log.platform = browser.platform
+        log.access_time = Time.now
+        log.link = link
+        log.save
     end
     
     private
